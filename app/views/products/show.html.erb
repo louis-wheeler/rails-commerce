@@ -1,0 +1,48 @@
+<head>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+</head>
+
+<div class="product-detail-page">
+    <%= render 'layouts/navbar' %>
+
+    <div class="product">
+        <h2><%= @product.name %></h2>
+        <hr/>
+        
+        <div class="product-info">
+            <div class="product-image col-sm-3">
+                
+            </div>
+            
+            <div class="product-description col-sm-6">
+                <h4>Product Info</h4>
+                <%= @product.description %>
+            </div>
+            
+            <div class="product-pricing col-sm-3">
+                <a class="btn btn-primary">
+                    <%= '$' + @product.price.to_s + ' - ' %>
+                    Add to Cart
+                </a>
+            </div>
+            
+            <div class="separator"/>
+        </div>
+        
+
+        <div class="product-reviews">
+            <h2>Reviews</h2>
+            <%= render @product.reviews %>
+        </div>
+
+        <div class="product-add-review">
+            <h2>Add a review</h2>
+            <%= render 'reviews/form' %>
+        </div>
+
+        <div class="product-links">
+            <%= link_to 'Edit', edit_product_path(@product) %>
+            <%= link_to 'Back', products_path %>
+        </div>
+    </div>
+</div>

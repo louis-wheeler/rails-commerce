@@ -1,0 +1,72 @@
+// Place all the styles related to the products controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+div.all-products-page {
+    margin: 0px 50px;
+    padding: 0px auto;
+    
+    div.navbar-collapse > ul.navbar-nav > li:first-of-type > a {
+        color: white;
+    }
+    
+    div.all-products {
+        margin-top: 80px;
+        
+        h2 {
+            display: inline;
+            margin-right: 65px;
+        }
+        
+        div.all-products-content > table {
+            margin-top: 50px;
+            border-bottom: solid 1px #ddd;
+            
+            tr.product-row-detail {
+                border-top: none;
+                > td {
+                    border-top: none;
+                    > div {
+                        display: none;
+                        margin-bottom: 60px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+div.product-detail-page {
+    margin: 0px 50px;
+    padding: 0px auto;
+    
+    div.product {
+        margin-top: 100px;
+        
+        div.product-info {
+            display: block;
+            
+            div.product-image {
+                background-color: #d2645d;
+                height: 180px;
+                border: 1px solid black;
+            }
+            
+            div.product-description {
+                
+            }
+            
+            div.product-pricing {
+                
+            }
+        }
+        
+        div.separator {
+            clear: both;
+        }
+        
+        div.product-reviews {
+            
+        }
+    }
+}

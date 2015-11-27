@@ -1,0 +1,17 @@
+<tr class="product-row">
+    <td class="col-xs-3">Image</td>
+    <td class="col-xs-6"><%= product.name %></td>
+    <td class="col-xs-2"><%= '$' + product.price.to_s %></td>
+    <td class="col-xs-1"><%= link_to 'View', product_path(product), class: 'btn btn-primary' %></td>
+    <!-- <td><%= link_to 'View', product_path(product) %></td> -->
+    <!--<td><%= link_to 'Edit', edit_product_path(product) %></td>
+    <td><%= link_to 'Delete', product_path(product),
+            method: :delete,
+            data: { confirm: 'Are you sure?' } %></td> -->
+</tr>
+<tr class="product-row-detail">
+    <td class="col-xs-3"><div></div></td>
+    <td class="col-xs-6"><div><%= product.description %></div></td>
+    <td class="col-xs-2"><div></div></td>
+    <td class="col-xs-1"><div></div></td>
+</tr>
