@@ -7,11 +7,12 @@
 
     <div class="product">
         <h2><%= @product.name %></h2>
+        <%= link_to 'Edit', edit_product_path(@product) %>
         <hr/>
         
         <div class="product-info">
             <div class="product-image col-sm-3">
-                
+                <img src="../images/<%= @product.image %>"/>
             </div>
             
             <div class="product-description col-sm-6">
@@ -38,11 +39,6 @@
         <div class="product-add-review">
             <h2>Add a review</h2>
             <%= render 'reviews/form' %>
-        </div>
-
-        <div class="product-links">
-            <%= link_to 'Edit', edit_product_path(@product) %>
-            <%= link_to 'Back', products_path %>
         </div>
     </div>
 </div>

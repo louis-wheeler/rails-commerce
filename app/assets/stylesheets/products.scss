@@ -22,8 +22,23 @@ div.all-products-page {
             margin-top: 50px;
             border-bottom: solid 1px #ddd;
             
+            tr.product-row {
+                cursor: pointer;
+                
+                td.product-image > img {
+                    height: 100px;
+                }
+                
+                td.product-name, td.product-price, td.product-actions {
+                    font-size: 28px;
+                    padding-top: 25px;
+                }
+            }
+            
             tr.product-row-detail {
                 border-top: none;
+                cursor: pointer;
+                
                 > td {
                     border-top: none;
                     > div {
@@ -47,9 +62,11 @@ div.product-detail-page {
             display: block;
             
             div.product-image {
-                background-color: #d2645d;
                 height: 180px;
-                border: 1px solid black;
+                
+                img {
+                    height: 100%;
+                }
             }
             
             div.product-description {
@@ -63,10 +80,31 @@ div.product-detail-page {
         
         div.separator {
             clear: both;
+            margin-bottom: 100px;
         }
         
         div.product-reviews {
+            margin-bottom: 100px;
             
+            div.review-body {
+                border: solid 1px #000000;
+                border-radius: 10px;
+                background-color: #eeeeee;
+                padding: 20px 20px 10px;
+                max-width: 400px;
+            }
+        }
+        
+        div.product-add-review {
+            margin-bottom: 200px;
+            
+            div.review-form {
+                border: solid 1px #000000;
+                border-radius: 10px;
+                background-color: #eeeeee;
+                padding: 20px 20px 10px;
+                max-width: 400px;
+            }
         }
     }
 }
