@@ -11,11 +11,44 @@
         <div class="collapse navbar-collapse" id="store-navbar">
             <ul class="nav navbar-nav">
                 <li><%= link_to 'All Products', controller: 'products' %></li>
+                <li><%= link_to 'Users', controller: 'users' %></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">Log In</a></li>
-                <li><%= link_to 'Sign Up', new_user_path %></li>
+                <% if logged_in? %>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown">
+                            <%= current_user.username %> <span class="fa fa-caret-right"/>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><%= link_to "Profile", current_user %></li>
+                            <li><%= link_to "Home", root_path %></li>
+                            <li class="divider"></li>
+                            <li><%= link_to "Log out", logout_path, method: "delete" %></li>
+                        </ul>
+                    </li>
+                <% else %>
+                    <li><%= link_to 'Log In', login_path %></li>
+                    <li><%= link_to 'Sign Up', signup_path %></li>
+                <% end %>
             </ul>
         </div>
     </div>
 </nav>
+
+<script>
+    $(document).ready(function() {
+        $('.dropdown-toggle').dropdown();
+        
+        $('li.dropdown').on('show.bs.dropdown', function() {
+            var caret = $('a.dropdown-toggle span');
+            caret.removeClass('fa-caret-right');
+            caret.addClass('fa-caret-down');
+        });
+        
+        $('li.dropdown').on('hide.bs.dropdown', function() {
+            var caret = $('a.dropdown-toggle span');
+            caret.removeClass('fa-caret-down');
+            caret.addClass('fa-caret-right');
+        });
+    });
+</script>

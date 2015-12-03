@@ -1,0 +1,30 @@
+<div class="user-login-page">
+    <%= render 'layouts/navbar' %>
+    
+    <div class="user-login-content">
+
+        <div class="login-form well">
+            <h1>Log In</h1>
+            
+            <% flash.each do |message_type, message| %>
+                <div class="alert alert-<%= message_type %>"><%= message %></div>
+            <% end %>
+            
+            <%= form_for(:session, url: login_path) do |f| %>
+                <strong>Username</strong>
+                <%= f.text_field :username, class: "form-control" %>
+                
+                <strong>Password</strong>
+                <%= f.password_field :password, class: "form-control" %>
+                
+                <div class="login-btn-container">
+                    <%= f.submit "Log In", class: "btn btn-primary" %>
+                </div>
+            <% end %>
+            
+            <div class="signup-link-container">
+                <p>New user? <%= link_to "Sign up now!", new_user_path %></p>
+            </div>
+        </div>
+    </div>
+</div>

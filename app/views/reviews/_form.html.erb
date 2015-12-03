@@ -1,19 +1,24 @@
 <%= form_for([@product, @product.reviews.build]) do |f| %>
-    <div class="review-form">
+    <div class="review-form well">
+        <table>
+            <tr>
+                <td><strong>User</strong></td>
+                <td><%= f.text_field :user %></td>
+            </tr>
+            <tr>
+                <td><strong>Rating</strong></td>
+                <td><%= f.number_field :rating, :class => 'text_field',
+                                            :step => 0.1,
+                                            :min => 0.0,
+                                            :max => 5.0 %></td>
+            </tr>
+            <tr>
+                <td><strong>Review</strong></td>
+                <td><%= f.text_area :body %></td>
+            </tr>
+        </table>
         <p>
-            <strong>User:</strong>
-            <%= f.text_field :user %>
-        </p>
-        <p>
-            <strong>Review:</strong>
-            <%= f.text_area :body %>
-        </p>
-        <p>
-            <strong>Rating:</strong>
-            <%= f.number_field :rating, :class => 'text_field', :step => 0.1 %>
-        </p>
-        <p>
-            <%= f.submit %>
+            <%= f.submit "Submit" %>
         </p>
     </div>
 <% end %>

@@ -1,7 +1,11 @@
-<head>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
-</head>
-
 <div class="user-detail-page">
-    <h1>User Info</h1>
+    <%= render 'layouts/navbar' %>
+    
+    <div class="user-detail-content">
+        <h2>User: <%= @user.username %></h2>
+        <p>
+            <strong>Email:</strong>
+            <%= @user.email %>
+        </p>
+    </div>
 </div>

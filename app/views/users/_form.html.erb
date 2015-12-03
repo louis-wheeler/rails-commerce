@@ -1,31 +1,35 @@
 <%= form_for @user do |f| %>
-    <% if @user.errors.any? %>
-        <div id="error_explanation">
-            <h2>
-                <%= pluralize(@user.errors.count, "error") %>
-                prohibited this account from being created:
-            </h2>
-            <ul>
+    <div class="user-signup-content well">
+        <h1>Create an Account!</h1>
+        
+        <% if @user.errors.any? %>
+            <div class="error_explanation">
                 <% @user.errors.full_messages.each do |msg| %>
-                    <li><%= msg %></li>
+                    <p><%= msg %></p>
                 <% end %>
-            </ul>
-        </div>
-    <% end %>
+            </div>
+        <% end %>
 
-    <p>
-        <strong>Username:</strong>
-        <%= f.text_field :username %>
-    </p>
-    <p>
-        <strong>Email Address:</strong>
-        <%= f.text_field :email %>
-    </p>
-    <p>
-        <strong>Password:</strong>
-        <%= f.text_field :password %>
-    </p>
-    <p>
-        <%= f.submit %>
-    </p>
+        <table>
+            <tr>
+                <td><strong>Username</strong></td>
+                <td><%= f.text_field :username %></td>
+            </tr>
+            <tr>
+                <td><strong>Email Address</strong></td>
+                <td><%= f.text_field :email %></td>
+            </tr>
+            <tr>
+                <td><strong>Password</strong></td>
+                <td><%= f.password_field :password %></td>
+            </tr>
+            <tr>
+                <td><strong>Confirm Password</strong></td>
+                <td><%= f.password_field :password_confirmation %></td>
+            </tr>
+        </table>
+        <p>
+            <%= f.submit "Sign Up" %>
+        </p>
+    </div>
 <% end %>
