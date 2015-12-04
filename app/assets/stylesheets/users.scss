@@ -51,6 +51,9 @@ div.user-login-page {
 }
 
 div.all-users-page {
+    div.navbar-collapse > ul.navbar-nav > li:nth-child(2) > a {
+        color: white;
+    }
     
     div.all-users-content {
         margin: 80px 50px 0px;

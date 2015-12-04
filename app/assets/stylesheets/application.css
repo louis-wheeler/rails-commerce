@@ -13,7 +13,20 @@
  *= require_tree .
  *= require_self
  */
+ 
+div.navbar-header a.navbar-brand span.fa-home,
+div#store-navbar ul.navbar-nav span.fa {
+    margin-right: 4px;
+}
 
 nav.navbar a.dropdown-toggle {
     cursor: pointer;
+}
+
+ul.navbar-right ul.dropdown-menu > li:hover {
+    background-color: red !important;
+}
+
+ul.navbar-right a.dropdown-toggle span.fa {
+    margin-left: 5px;
 }

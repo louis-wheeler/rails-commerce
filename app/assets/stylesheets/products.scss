@@ -125,15 +125,16 @@ div.product-detail-page {
             div.review-form {
                 max-width: 400px;
                 
-                table {
-                    
-                    tr {
-                        border-bottom: solid 10px transparent;
-                        
-                        td:first-of-type {
-                            padding-right: 20px;
-                        }
-                    }
+                input, textarea {
+                    margin-bottom: 20px;
+                }
+                
+                textarea {
+                    resize: vertical;
+                }
+                
+                div.submit-btn-container {
+                    text-align: center;
                 }
             }
         }
@@ -149,7 +150,7 @@ div.new-product-page {
             max-width: 500px;
             margin: 50px auto 0px;
             
-            input.form-control {
+            input.form-control, textarea {
                 margin-bottom: 20px;
             }
             
@@ -157,9 +158,30 @@ div.new-product-page {
                 resize: vertical;
             }
             
-            div.create-btn-container {
+            div.submit-btn-container {
                 text-align: center;
             }
+        }
+    }
+}
+
+div.edit-product-page {
+    margin: 80px 50px 0px;
+    
+    div.well {
+        max-width: 500px;
+        margin: 50px auto 0px;
+        
+        input.form-control, textarea {
+            margin-bottom: 20px;
+        }
+        
+        textarea {
+            resize: vertical;
+        }
+        
+        div.submit-btn-container {
+            text-align: center;
         }
     }
 }

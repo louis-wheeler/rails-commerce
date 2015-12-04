@@ -34,7 +34,12 @@
 
         <div class="product-add-review">
             <h2>Add a review</h2>
-            <%= render 'reviews/form' %>
+            
+            <% if logged_in? %>
+                <%= render 'reviews/form' %>
+            <% else %>
+                <p>Please <%= link_to 'log in', login_path %> or <%= link_to 'sign up', signup_path %> to post a review of a product.</p>
+            <% end %>
         </div>
     </div>
 </div>

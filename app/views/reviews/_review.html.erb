@@ -10,9 +10,11 @@
         <%= review.body %>
     </p>
 
-    <p>
-        <%= link_to 'Delete Review', [review.product, review],
-                    method: :delete,
-                    data: { confirm: 'Are you sure?' } %>
-    </p>
+    <% if logged_in? && current_user.isAdmin %>
+        <p>
+            <%= link_to 'Delete Review', [review.product, review],
+                        method: :delete,
+                        data: { confirm: 'Are you sure?' } %>
+        </p>
+    <% end %>
 </div>
