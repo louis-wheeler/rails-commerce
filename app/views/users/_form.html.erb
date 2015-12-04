@@ -2,34 +2,28 @@
     <div class="user-signup-content well">
         <h1>Create an Account!</h1>
         
-        <% if @user.errors.any? %>
-            <div class="error_explanation">
-                <% @user.errors.full_messages.each do |msg| %>
-                    <p><%= msg %></p>
-                <% end %>
-            </div>
+        <% flash.each do |message_type, message| %>
+            <div class="alert alert-<%= message_type %>"><%= message %></div>
         <% end %>
-
-        <table>
-            <tr>
-                <td><strong>Username</strong></td>
-                <td><%= f.text_field :username %></td>
-            </tr>
-            <tr>
-                <td><strong>Email Address</strong></td>
-                <td><%= f.text_field :email %></td>
-            </tr>
-            <tr>
-                <td><strong>Password</strong></td>
-                <td><%= f.password_field :password %></td>
-            </tr>
-            <tr>
-                <td><strong>Confirm Password</strong></td>
-                <td><%= f.password_field :password_confirmation %></td>
-            </tr>
-        </table>
-        <p>
-            <%= f.submit "Sign Up" %>
-        </p>
+        
+        <strong>Username</strong>
+        <%= f.text_field :username, class: 'form-control' %>
+        
+        <strong>Email Address</strong>
+        <%= f.text_field :email, class: 'form-control' %>
+        
+        <strong>Password</strong>
+        <%= f.password_field :password, class: 'form-control' %>
+        
+        <strong>Confirm Password</strong>
+        <%= f.password_field :password_confirmation, class: 'form-control' %>
+        
+        <div class="signup-btn-container">
+            <%= f.submit "Sign Up", class: 'btn btn-primary' %>
+        </div>
+        
+        <div class="login-link-container">
+            <p>Already have an account? <%= link_to "Log in!", login_path %></p>
+        </div>
     </div>
 <% end %>

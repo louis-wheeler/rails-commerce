@@ -11,7 +11,9 @@
         <div class="collapse navbar-collapse" id="store-navbar">
             <ul class="nav navbar-nav">
                 <li><%= link_to 'All Products', controller: 'products' %></li>
-                <li><%= link_to 'Users', controller: 'users' %></li>
+                <% if logged_in? && current_user.isAdmin %>
+                    <li><%= link_to 'Users', controller: 'users' %></li>
+                <% end %>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <% if logged_in? %>

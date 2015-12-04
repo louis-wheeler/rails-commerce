@@ -7,25 +7,20 @@ div.user-signup-page {
     padding: 0px auto;
     
     div.user-signup-content {
-        margin: 80px auto 0px;
-        text-align: center;
         max-width: 500px;
+        margin: 80px auto 0px;
+        padding: 0px 50px;
         
-        div.error_explanation p {
-            color: red;
+        h1 {
+            margin-bottom: 30px;
         }
         
-        table {
-            margin: 0px auto;
-            text-align: right;
-            
-            tr {
-                border-bottom: solid 10px transparent;
-                
-                > td:first-of-type {
-                padding-right: 20px;
-                }
-            }
+        input {
+            margin-bottom: 20px;
+        }
+        
+        div.signup-btn-container, div.login-link-container {
+            text-align: center;
         }
     }
 }
@@ -58,11 +53,20 @@ div.user-login-page {
 div.all-users-page {
     
     div.all-users-content {
-        margin: 80px auto 0px;
+        margin: 80px 50px 0px;
         
         div.all-users-table {
-            margin: 0px 50px;
+            margin: 50px auto 0px;
             max-width: 800px;
+            
+            table {
+                border-bottom: solid 1px #dddddd;
+                
+                th {
+                    padding-bottom: 15px;
+                    border-top: none;
+                }
+            }
         }
     }
 }

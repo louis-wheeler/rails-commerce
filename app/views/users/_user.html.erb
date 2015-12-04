@@ -1,5 +1,8 @@
 <tr class="user-row">
-    <td class="col-xs-6 user-username"><%= user.username %></td>
+    <td class="col-xs-2 user-username"><%= user.username %></td>
     <td class="col-xs-2 user-email"><%= user.email %></td>
+    <% if logged_in? && current_user.isAdmin %>
+        <td class="col-xs-1 user-admin"><%= user.isAdmin ? 'admin' : '' %></td>
+    <% end %>
     <td class="col-xs-1 user-actions"><%= link_to 'View', user_path(user), class: 'btn btn-primary' %></td>
 </tr>

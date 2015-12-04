@@ -1,35 +1,35 @@
 <%= form_for @product do |f| %>
-    <% if @product.errors.any? %>
-        <div id="error_explanation">
-            <h2>
-                <%= pluralize(@product.errors.count, "error") %>
-                prohibited this product from being saved:
-            </h2>
-            <ul>
-                <% @product.errors.full_messages.each do |msg| %>
-                    <li><%= msg %></li>
-                <% end %>
-            </ul>
-        </div>
-    <% end %>
+    <div class="well">
+        <% if @product.errors.any? %>
+            <div id="error_explanation">
+                <h2>
+                    <%= pluralize(@product.errors.count, "error") %>
+                    prohibited this product from being saved:
+                </h2>
+                <ul>
+                    <% @product.errors.full_messages.each do |msg| %>
+                        <li><%= msg %></li>
+                    <% end %>
+                </ul>
+            </div>
+        <% end %>
 
-    <p>
-        <strong>Name:</strong>
-        <%= f.text_field :name %>
-    </p>
-    <p>
-        <strong>Description:</strong>
-        <%= f.text_area :description %>
-    </p>
-    <p>
-        <strong>Price:</strong>
-        <%= f.number_field :price, :class => 'text_field', :step => 0.01 %>
-    </p>
-    <p>
-        <strong>Image Name:</strong>
-        <%= f.text_field :image %>
-    </p>
-    <p>
-        <%= f.submit %>
-    </p>
+        <strong>Name</strong>
+        <%= f.text_field :name, class: 'form-control' %>
+        
+        <strong>Description</strong>
+        <%= f.text_area :description, class: 'form-control' %>
+        
+        <strong>Price (USD)</strong>
+        <%= f.number_field :price, class: 'text_field, form-control',
+                                   :step => 0.01,
+                                   :min => 0.0 %>
+        
+        <strong>Image Name (e.g. my_product.jpg)</strong>
+        <%= f.text_field :image, class: 'form-control' %>
+        
+        <div class="create-btn-container">
+            <%= f.submit class: 'btn btn-success' %>
+        </div>
+    </div>
 <% end %>

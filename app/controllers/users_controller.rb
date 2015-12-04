@@ -18,11 +18,13 @@ class UsersController < ApplicationController
     
     def create
         @user = User.new(user_params)
+        @user.isAdmin = false
         
         if @user.save
             log_in @user
             redirect_to root_path
         else
+            flash.now[:danger] = 'All fields are required.  Ensure the password fields match.'
             render 'new'
         end
     end
@@ -44,6 +46,6 @@ class UsersController < ApplicationController
     
     private
         def user_params
-            params.require(:user).permit(:username, :email, :password, :password_confirmation)
+            params.require(:user).permit(:username, :email, :password, :password_confirmation, :isAdmin)
         end
 end

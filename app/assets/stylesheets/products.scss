@@ -18,33 +18,61 @@ div.all-products-page {
             margin-right: 65px;
         }
         
-        div.all-products-content > table {
-            margin-top: 50px;
-            border-bottom: solid 1px #ddd;
+        a.btn-success {
+            float: right;
             
-            tr.product-row {
-                cursor: pointer;
+            > span.fa-plus {
+                margin-right: 5px;
+            }
+        }
+        
+        div.all-products-content {
+            > table {
+                margin-top: 50px;
+                border-bottom: solid 1px #ddd;
                 
-                td.product-image > img {
-                    height: 100px;
+                tr.product-row {
+                    cursor: pointer;
+                    
+                    td.product-image > img {
+                        height: 100px;
+                    }
+                    
+                    td.product-name, td.product-price,
+                    td.product-action-view, td.product-action-edit, td.product-action-delete {
+                        font-size: 28px;
+                        padding-top: 25px;
+                    }
+                    
+                    td.product-action-view,
+                    td.product-action-edit,
+                    td.product-action-delete {
+                        font-size: 28px;
+                        padding-top: 25px;
+                        
+                        a.btn, button.btn {
+                            width: 100%;
+                        }
+                    }
                 }
                 
-                td.product-name, td.product-price, td.product-actions {
-                    font-size: 28px;
-                    padding-top: 25px;
+                tr.product-row-detail {
+                    border-top: none;
+                    cursor: pointer;
+                    
+                    > td {
+                        border-top: none;
+                        > div {
+                            display: none;
+                            margin-bottom: 60px;
+                        }
+                    }
                 }
             }
             
-            tr.product-row-detail {
-                border-top: none;
-                cursor: pointer;
-                
-                > td {
-                    border-top: none;
-                    > div {
-                        display: none;
-                        margin-bottom: 60px;
-                    }
+            div#delete-modal {
+                div.modal-header {
+                    border-bottom: none;
                 }
             }
         }
@@ -107,6 +135,30 @@ div.product-detail-page {
                         }
                     }
                 }
+            }
+        }
+    }
+}
+
+div.new-product-page {
+    margin: 80px 50px 0px;
+    
+    div.new-product-content {
+        
+        div.well {
+            max-width: 500px;
+            margin: 50px auto 0px;
+            
+            input.form-control {
+                margin-bottom: 20px;
+            }
+            
+            textarea {
+                resize: vertical;
+            }
+            
+            div.create-btn-container {
+                text-align: center;
             }
         }
     }

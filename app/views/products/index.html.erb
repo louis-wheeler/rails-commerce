@@ -3,7 +3,10 @@
 
     <div class="all-products">
         <h2>All Products</h2>
-        <%= link_to 'Create New Product', new_product_path %>
+        
+        <% if logged_in? && current_user.isAdmin %>
+            <%= link_to raw('<span class="fa fa-plus"></span> New Product'), new_product_path, class: 'btn btn-success' %>
+        <% end %>
         
         <div class="all-products-content">
             <table class="table table-condensed">
@@ -23,6 +26,10 @@
         });
         $('a.btn').click(function(e) {
             e.stopPropagation();
+        });
+        $('td.product-action-delete button.btn-danger').click(function(e) {
+            e.stopPropagation();
+            $($(this).attr('data-target')).modal('show');
         });
     });
 </script>
