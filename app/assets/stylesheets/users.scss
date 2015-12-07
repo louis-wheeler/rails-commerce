@@ -51,6 +51,7 @@ div.user-login-page {
 }
 
 div.all-users-page {
+    
     div.navbar-collapse > ul.navbar-nav > li:nth-child(2) > a {
         color: white;
     }
@@ -79,14 +80,31 @@ div.all-users-page {
 }
 
 div.user-detail-page {
+    margin: 0px 50px;
+        
+    div.navbar-collapse > ul.navbar-nav > li:nth-child(2) > a {
+        color: white;
+    }
     
     div.user-detail-content {
         margin: 80px auto 0px;
+        
+        img {
+            height: 200px;
+        }
+        
+        div.separator {
+            clear: both;
+        }
     }
 }
 
 div.edit-user-page {
     margin: 80px 50px 0px;
+        
+    div.navbar-collapse > ul.navbar-nav > li:nth-child(2) > a {
+        color: white;
+    }
     
     div.edit-user-content {
         margin: 0px auto;

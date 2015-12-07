@@ -83,6 +83,10 @@ div.product-detail-page {
     margin: 0px 50px;
     padding: 0px auto;
     
+    div.navbar-collapse > ul.navbar-nav > li:first-of-type > a {
+        color: white;
+    }
+    
     div.product {
         margin-top: 100px;
         
@@ -102,7 +106,23 @@ div.product-detail-page {
             }
             
             div.product-pricing {
+                text-align: center;
                 
+                a.btn-add-to-cart, a.btn-favorite {
+                    margin-top: 20px;
+                    
+                    span.fa {
+                        margin-right: 10px;
+                    }
+                }
+                
+                a.btn-add-to-cart > span.fa-shopping-cart {
+                    color: #00e400;
+                }
+                
+                a.btn-favorite > span.fa-heart {
+                    color: #ff0066;
+                }
             }
         }
         

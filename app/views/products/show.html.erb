@@ -17,9 +17,14 @@
             </div>
             
             <div class="product-pricing col-sm-3">
-                <a class="btn btn-primary">
-                    <%= '$' + @product.price.to_s + ' - ' %>
-                    Add to Cart
+                <h3><%= '$' + @product.price.to_s %></h3>
+                <a class="btn btn-primary btn-add-to-cart">
+                    <span class="fa fa-shopping-cart fa-lg"></span>
+                    <span>Add to Cart</span>
+                </a>
+                <a class="btn btn-info btn-favorite">
+                    <span class="fa fa-heart fa-lg"></span>
+                    <span>Add to Favorites</span>
                 </a>
             </div>
             

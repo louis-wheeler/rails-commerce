@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
     
+    # http_basic_authenticate_with name: @user.username, password: @user.password, except: [:index, :show]
+    
     def index
         @users = User.all
     end
@@ -14,6 +16,10 @@ class UsersController < ApplicationController
     
     def edit
         @user = User.find(params[:id])
+        
+        if !logged_in? || (logged_in? && current_user.username != @user.username)
+            redirect_to users_path
+        end
     end
     
     def create
@@ -34,6 +40,12 @@ class UsersController < ApplicationController
     
     def update
         @user = User.find(params[:id])
+        
+        if !logged_in? || (logged_in? && current_user.username != @user.username)
+            redirect_to users_path
+            return
+        end
+        
         if @user.update(user_params)
             redirect_to @user
         else
