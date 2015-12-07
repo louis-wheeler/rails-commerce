@@ -1,4 +1,9 @@
 <tr class="user-row">
+    <td class="col-xs-1 user-image">
+        <% if !user.image.nil? %>
+            <img src="images/users/<%= user.image %>" alt="<%= user.username %>"/>
+        <% end %>
+    </td> 
     <td class="col-xs-2 user-username"><%= user.username %></td>
     <td class="col-xs-2 user-email"><%= user.email %></td>
     <% if logged_in? && current_user.isAdmin %>

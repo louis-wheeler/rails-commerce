@@ -19,6 +19,9 @@ class UsersController < ApplicationController
     def create
         @user = User.new(user_params)
         @user.isAdmin = false
+        if @user.image.nil?
+            @user.image = 'no_image.jpg'
+        end
         
         if @user.save
             log_in @user
@@ -41,11 +44,11 @@ class UsersController < ApplicationController
     def destroy
         @user = User.find(params[:id])
         @user.destroy
-        redirect_to root_path
+        redirect_to users_path
     end
     
     private
         def user_params
-            params.require(:user).permit(:username, :email, :password, :password_confirmation, :isAdmin)
+            params.require(:user).permit(:username, :email, :password, :password_confirmation, :isAdmin, :image)
         end
 end

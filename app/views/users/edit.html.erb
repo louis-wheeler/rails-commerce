@@ -1,0 +1,35 @@
+<%= render 'layouts/navbar' %>
+<div class="edit-user-page">
+    <h1>Editing User</h1>
+    
+    <%= form_for @user do |f| %>
+    
+        <div class="edit-user-content well">
+    
+            <% if @user.errors.any? %>
+                <div id="error_explanation">
+                    <ul>
+                        <% @user.errors.full_messages.each do |msg| %>
+                            <li><%= msg %></li>
+                        <% end %>
+                    </ul>
+                </div>
+            <% end %>
+        
+            <strong>Username</strong>
+            <p><%= @user.username %></p>
+            
+            <strong>Email</strong>
+            <%= f.text_field :email, class: 'form-control' %>
+            
+            <strong>Image Name</strong>
+            <%= f.text_field :image, class: 'form-control' %>
+            
+            <div class="buttons-container">
+                <%= link_to 'Cancel', @user, class: 'btn btn-default' %>
+                <%= f.submit 'Save Changes', class: 'btn btn-success' %>
+            </div>
+        </div>
+        
+    <% end %>
+</div>

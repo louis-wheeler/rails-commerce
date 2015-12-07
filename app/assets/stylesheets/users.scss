@@ -69,6 +69,10 @@ div.all-users-page {
                     padding-bottom: 15px;
                     border-top: none;
                 }
+                
+                img {
+                    height: 80px;
+                }
             }
         }
     }
@@ -78,5 +82,22 @@ div.user-detail-page {
     
     div.user-detail-content {
         margin: 80px auto 0px;
+    }
+}
+
+div.edit-user-page {
+    margin: 80px 50px 0px;
+    
+    div.edit-user-content {
+        margin: 0px auto;
+        max-width: 500px;
+        
+        input.form-control {
+            margin-bottom: 20px;
+        }
+        
+        div.buttons-container {
+            text-align: center;
+        }
     }
 }

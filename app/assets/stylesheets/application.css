@@ -23,8 +23,9 @@ nav.navbar a.dropdown-toggle {
     cursor: pointer;
 }
 
-ul.navbar-right ul.dropdown-menu > li:hover {
-    background-color: red !important;
+ul.navbar-right ul.dropdown-menu > li > a:hover {
+    background-color: #3cb84f;
+    color: #ffffff;
 }
 
 ul.navbar-right a.dropdown-toggle span.fa {

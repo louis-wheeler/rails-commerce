@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
     validates_uniqueness_of :username
     validates :email, presence: true
     validates :password, presence: true, confirmation: true
-    validates :password_confirmation, presence: true
+    # validates :password_confirmation, presence: true
     
     # Default sort by username
     default_scope { order('username ASC') }
