@@ -1,0 +1,26 @@
+<%= render 'layouts/navbar' %>
+<div class="shopping-cart-page">
+    
+    <h1>Shopping Cart</h1>
+    
+    <div class="shopping-cart-content">
+        
+        <table class="table table-condensed">
+            <tr>
+                <th class="col-xs-5">Product</th>
+                <th class="col-xs-2">Quantity</th>
+                <th class="col-xs-2">Product Price</th>
+                <th class="col-xs-3">Product Sub-Total</th>
+            </tr>
+            
+            <%= render current_user.shoppingCartItems %>
+            
+            <tr>
+                <td></td>
+                <td></td>
+                <td>Grand Total:</td>
+                <td><%= current_user.cart_total_price %></td>
+            </tr>
+        </table>
+    </div>
+</div>

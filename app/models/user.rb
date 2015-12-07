@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
     
+    has_many :shoppingCartItems, dependent: :destroy
+    
     # Field validations
     validates :username, presence: true
     validates_uniqueness_of :username
@@ -9,5 +11,9 @@ class User < ActiveRecord::Base
     
     # Default sort by username
     default_scope { order('username ASC') }
+    
+    def cart_total_price
+        shoppingCartItems.sum(:product.price)
+    end
     
 end

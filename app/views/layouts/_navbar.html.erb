@@ -15,6 +15,17 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <% if logged_in? %>
+                    <li class="shopping-cart">
+                        <a href="/users/<%= current_user.id %>/cart">
+                            <% if current_user.cartSize > 0 %>
+                            <span class="fa-stack">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <strong class="fa-stack-1x circle-text"><%= current_user.cartSize %></strong>
+                            </span>
+                            <% end %>
+                            Shopping Cart
+                        </a>
+                    </li>
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown">
                             <%= current_user.username %> <span class="fa fa-caret-right"/>

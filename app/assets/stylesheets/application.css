@@ -31,3 +31,12 @@ ul.navbar-right ul.dropdown-menu > li > a:hover {
 ul.navbar-right a.dropdown-toggle span.fa {
     margin-left: 5px;
 }
+
+ul.navbar-right li.shopping-cart span.fa-stack i.fa-circle {
+    color: #ff0000;
+}
+
+ul.navbar-right li.shopping-cart span.fa-stack strong.circle-text {
+    margin-top: -1px;
+    color: #ffffff;
+}

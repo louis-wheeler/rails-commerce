@@ -1,10 +1,13 @@
 Rails.application.routes.draw do
     
     root               'home#index'
+    
     get    'signup' => 'users#new'
     get    'login'  => 'sessions#new'
     post   'login'  => 'sessions#create'
     delete 'logout' => 'sessions#destroy'
+    
+    get    'users/:id/cart'   => 'users#shopping_cart'
 
     resources :products do
         resources :reviews

@@ -101,7 +101,7 @@ div.user-detail-page {
 
 div.edit-user-page {
     margin: 80px 50px 0px;
-        
+    
     div.navbar-collapse > ul.navbar-nav > li:nth-child(2) > a {
         color: white;
     }
@@ -116,6 +116,19 @@ div.edit-user-page {
         
         div.buttons-container {
             text-align: center;
+        }
+    }
+}
+
+div.shopping-cart-page {
+    margin: 80px 50px 0px;
+    
+    div.shopping-cart-content {
+        margin: 0px auto;
+        
+        table {
+            max-width: 700px;
+            margin: 0px auto;
         }
     }
 }

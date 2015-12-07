@@ -1,7 +1,5 @@
 class UsersController < ApplicationController
     
-    # http_basic_authenticate_with name: @user.username, password: @user.password, except: [:index, :show]
-    
     def index
         @users = User.all
     end
@@ -15,19 +13,15 @@ class UsersController < ApplicationController
     end
     
     def edit
+        confirm_user
         @user = User.find(params[:id])
-        
-        if !logged_in? || (logged_in? && current_user.username != @user.username)
-            redirect_to users_path
-        end
     end
     
     def create
         @user = User.new(user_params)
         @user.isAdmin = false
-        if @user.image.nil?
-            @user.image = 'no_image.jpg'
-        end
+        @user.image = 'no_image.jpg'
+        @user.cartSize = 0
         
         if @user.save
             log_in @user
@@ -39,12 +33,8 @@ class UsersController < ApplicationController
     end
     
     def update
+        confirm_user
         @user = User.find(params[:id])
-        
-        if !logged_in? || (logged_in? && current_user.username != @user.username)
-            redirect_to users_path
-            return
-        end
         
         if @user.update(user_params)
             redirect_to @user
@@ -54,9 +44,20 @@ class UsersController < ApplicationController
     end
     
     def destroy
+        confirm_user
         @user = User.find(params[:id])
         @user.destroy
         redirect_to users_path
+    end
+    
+    #def cart_total_price
+    #    User.find(params[:id]).shopping_cart_items.sum(:product.price)
+    #end
+    
+    def confirm_user
+        if !logged_in? || (logged_in? && current_user.username != @user.username)
+            redirect_to users_path
+        end
     end
     
     private

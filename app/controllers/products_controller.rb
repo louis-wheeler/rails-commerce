@@ -1,7 +1,5 @@
 class ProductsController < ApplicationController
     
-    http_basic_authenticate_with name: "admin", password: "secret", except: [:index, :show]
-    
     def index
         @products = Product.all
     end
@@ -15,10 +13,12 @@ class ProductsController < ApplicationController
     end
     
     def edit
+        confirm_admin
         @product = Product.find(params[:id])
     end
     
     def create
+        confirm_admin
         @product = Product.new(product_params)
         if @product.save
             redirect_to @product
@@ -28,6 +28,7 @@ class ProductsController < ApplicationController
     end
     
     def update
+        confirm_admin
         @product = Product.find(params[:id])
         if @product.update(product_params)
             redirect_to @product
@@ -37,9 +38,16 @@ class ProductsController < ApplicationController
     end
     
     def destroy
+        confirm_admin
         @product = Product.find(params[:id])
         @product.destroy
         redirect_to products_path
+    end
+    
+    def confirm_admin
+        if !logged_in? || (logged_in? && !current_user.isAdmin)
+            redirect_to products_path
+        end
     end
     
     private
