@@ -23,6 +23,10 @@ nav.navbar a.dropdown-toggle {
     cursor: pointer;
 }
 
+ul.navbar-right li.dropdown {
+    padding-top: 3px;
+}
+
 ul.navbar-right ul.dropdown-menu > li > a:hover {
     background-color: #3cb84f;
     color: #ffffff;

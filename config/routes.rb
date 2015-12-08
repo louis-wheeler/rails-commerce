@@ -1,16 +1,21 @@
 Rails.application.routes.draw do
     
+    # Home route
     root               'home#index'
     
+    # Login/signup routes
     get    'signup' => 'users#new'
     get    'login'  => 'sessions#new'
     post   'login'  => 'sessions#create'
     delete 'logout' => 'sessions#destroy'
     
+    # Shopping cart routes
     get    'cart'           => 'users#shopping_cart', as: :user_cart
     post   'products/:id'   => 'shopping_cart_items#create'
-    delete 'users/:id/cart' => 'shopping_cart_items#destroy'
+    post   'cart'           => 'shopping_cart_items#update'
+    delete 'cart'           => 'shopping_cart_items#destroy'
 
+    # Resource routes
     resources :products do
         resources :reviews
     end

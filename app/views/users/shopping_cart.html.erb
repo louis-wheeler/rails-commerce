@@ -1,28 +1,57 @@
-<%= render 'layouts/navbar' %>
 <div class="shopping-cart-page">
-    
-    <h1>Shopping Cart</h1>
+    <%= render 'layouts/navbar' %>
     
     <div class="shopping-cart-content">
+        <h1>Shopping Cart</h1>
         
-        <table class="table table-condensed">
-            <tr>
-                <th class="col-sm-5" colspan="3">Product</th>
-                <th class="col-sm-2">Quantity</th>
-                <th class="col-sm-2">Product Price</th>
-                <th class="col-sm-3">Product Sub-Total</th>
-            </tr>
+        <% if logged_in? %>
+            <!-- Logged in -->
             
-            <%= render current_user.shoppingCartItems %>
+            <% if current_user.cartSize > 0 %>
+                <!-- Has items in cart -->
             
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td><strong>Grand Total:</strong></td>
-                <td><strong>$<%= current_user.cart_total_price %></strong></td>
-            </tr>
-        </table>
+                <table class="table table-condensed">
+                    <tr>
+                        <th class="col-sm-5" colspan="3">Product</th>
+                        <th class="col-sm-2">Quantity</th>
+                        <th class="col-sm-2">Product Price</th>
+                        <th class="col-sm-3">Product Sub-Total</th>
+                    </tr>
+                    
+                    <%= render current_user.shoppingCartItems %>
+                    
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><strong>Grand Total:</strong></td>
+                        <td><strong>$<%= number_with_precision(current_user.cart_total_price, precision: 2) %></strong></td>
+                    </tr>
+                </table>
+            <% else %>
+                <!-- No items in cart -->
+                <h2>You don't have any items in your cart!</h2>
+                <p>Head to the products page to find what's perfect for you.</p>
+            <% end %>
+        <% else %>
+            <!-- Not logged in -->
+            <h4><%= link_to 'Log in', login_path %> or <%= link_to 'sign up', signup_path %> to get shopping!</h4>
+        <% end %>
     </div>
 </div>
+
+<script>
+    $(document).ready(function() {
+        
+        // When the quantity is changed in the modal, update the quantity parameter on the 'confirm' link
+        $('div.edit-quantity-modal div.modal-body input').change(function() {
+            var quantity = Number($(this).val());
+            var updateQuantityLink = $(this).closest('div.modal-content').find('div.modal-footer a.btn-update-quantity');
+            var linkText = updateQuantityLink.attr('href');
+            var startIndex = (linkText.indexOf('&quantity=') + 10);
+            var updatedLink = (linkText.substring(0, startIndex) + quantity);
+            updateQuantityLink.attr('href', updatedLink);
+        });
+    });
+</script>

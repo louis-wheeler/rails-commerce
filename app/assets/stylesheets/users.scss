@@ -52,7 +52,7 @@ div.user-login-page {
 
 div.all-users-page {
     
-    div.navbar-collapse > ul.navbar-nav > li:nth-child(2) > a {
+    div.navbar-collapse > ul.navbar-nav:not(.navbar-right) > li:nth-child(2) > a {
         color: white;
     }
     
@@ -82,7 +82,7 @@ div.all-users-page {
 div.user-detail-page {
     margin: 0px 50px;
         
-    div.navbar-collapse > ul.navbar-nav > li:nth-child(2) > a {
+    div.navbar-collapse > ul.navbar-nav:not(.navbar-right) > li:nth-child(2) > a {
         color: white;
     }
     
@@ -102,7 +102,7 @@ div.user-detail-page {
 div.edit-user-page {
     margin: 80px 50px 0px;
     
-    div.navbar-collapse > ul.navbar-nav > li:nth-child(2) > a {
+    div.navbar-collapse > ul.navbar-nav:not(.navbar-right) > li:nth-child(2) > a {
         color: white;
     }
     
@@ -123,10 +123,14 @@ div.edit-user-page {
 div.shopping-cart-page {
     margin: 80px 50px 0px;
     
+    div.navbar-collapse > ul.navbar-right > li:nth-child(1) > a {
+        color: white;
+    }
+    
     div.shopping-cart-content {
         margin: 0px auto;
         
-        table {
+        > table.table-condensed {
             max-width: 800px;
             margin: 80px auto 0px;
             
@@ -145,6 +149,30 @@ div.shopping-cart-page {
                     
                     span.fa-trash {
                         color: #dd0000;
+                        cursor: pointer;
+                    }
+                    
+                    span.fa-pencil {
+                        color: #0000dd;
+                        cursor: pointer;
+                    }
+                    
+                    div.modal {
+                        
+                        div.modal-body {
+                            
+                            input.quantity-input {
+                                width: 60px;
+                                font-size: 24px;
+                            }
+                        }
+                        
+                        div.modal-footer {
+                            
+                            span.fa-trash {
+                                color: #ffffff;
+                            }
+                        }
                     }
                 }
             }
