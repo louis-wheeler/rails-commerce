@@ -18,10 +18,28 @@
             
             <div class="product-pricing col-sm-3">
                 <h3><%= '$' + @product.price.to_s %></h3>
-                <a class="btn btn-primary btn-add-to-cart">
-                    <span class="fa fa-shopping-cart fa-lg"></span>
-                    <span>Add to Cart</span>
-                </a>
+                
+                <!-- Add to Cart button -->
+                <% if !current_user.has_item_in_cart(@product.id) %>
+                    <%= link_to raw(
+                                    '<span class="fa fa-shopping-cart fa-lg"></span>
+                                    <span>Add to Cart</span>'
+                                ),
+                                {:controller => "shopping_cart_items",
+                                :action => "create",
+                                :user_id => current_user.id,
+                                :product_id => @product.id,
+                                :quantity => 1},
+                                :method => 'post',
+                                :class => 'btn btn-primary btn-add-to-cart' %>
+                <% else %>
+                    <a class="btn btn-primary btn-add-to-cart disabled">
+                        <span class="fa fa-shopping-cart fa-lg"></span>
+                        <span>Item in Cart</span>
+                    </a>
+                <% end %>
+                            
+                <!-- Add to Favorites button -->
                 <a class="btn btn-info btn-favorite">
                     <span class="fa fa-heart fa-lg"></span>
                     <span>Add to Favorites</span>

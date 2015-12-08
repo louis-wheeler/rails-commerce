@@ -1,6 +1,19 @@
 <tr class="cart-item-row">
-    <td><%= shopping_cart_item.product.name %></td>
-    <td><%= shopping_cart_item.quantity %></td>
-    <td>$<%= shopping_cart_item.product.price %></td>
-    <td>$<%= shopping_cart_item.quantity * shopping_cart_item.product.price %></td>
+    <td class="col-sm-1">
+        <%= link_to raw('<span class="fa fa-trash"/>'),
+            {:controller => 'shopping_cart_items',
+             :action => 'destroy',
+             :id => shopping_cart_item.id,
+             :user_id => shopping_cart_item.user_id,
+             :product_id => shopping_cart_item.product_id},
+            method: :delete %>
+    </td>
+    
+    
+    
+    <td class="col-sm-1"><img src="../../images/products/<%= shopping_cart_item.product.image %>" alt="<%= shopping_cart_item.product.name %>"/></td>
+    <td class="col-sm-3"><%= shopping_cart_item.product.name %></td>
+    <td class="col-sm-2"><%= shopping_cart_item.quantity %> <%= link_to raw('<span class="fa fa-pencil"/>') %></td>
+    <td class="col-sm-2">$<%= shopping_cart_item.product.price %></td>
+    <td class="col-sm-3">$<%= shopping_cart_item.quantity * shopping_cart_item.product.price %></td>
 </tr>

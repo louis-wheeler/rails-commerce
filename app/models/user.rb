@@ -13,7 +13,14 @@ class User < ActiveRecord::Base
     default_scope { order('username ASC') }
     
     def cart_total_price
-        shoppingCartItems.sum(:product.price)
+        @cartItemSum = 0
+        self.shoppingCartItems.each do |item|
+            @cartItemSum += (item.product.price * item.quantity)
+        end
+        @cartItemSum
     end
     
+    def has_item_in_cart(productId)
+        !ShoppingCartItem.where(:user_id => self.id, :product_id => productId).take.nil?
+    end
 end

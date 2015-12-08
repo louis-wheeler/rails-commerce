@@ -127,8 +127,27 @@ div.shopping-cart-page {
         margin: 0px auto;
         
         table {
-            max-width: 700px;
-            margin: 0px auto;
+            max-width: 800px;
+            margin: 80px auto 0px;
+            
+            img {
+                height: 50px;
+            }
+            
+            tr {
+                th {
+                    text-align: center;
+                }
+                
+                td {
+                    vertical-align: middle;
+                    text-align: center;
+                    
+                    span.fa-trash {
+                        color: #dd0000;
+                    }
+                }
+            }
         }
     }
 }

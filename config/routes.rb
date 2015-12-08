@@ -7,7 +7,9 @@ Rails.application.routes.draw do
     post   'login'  => 'sessions#create'
     delete 'logout' => 'sessions#destroy'
     
-    get    'users/:id/cart'   => 'users#shopping_cart'
+    get    'cart'           => 'users#shopping_cart', as: :user_cart
+    post   'products/:id'   => 'shopping_cart_items#create'
+    delete 'users/:id/cart' => 'shopping_cart_items#destroy'
 
     resources :products do
         resources :reviews

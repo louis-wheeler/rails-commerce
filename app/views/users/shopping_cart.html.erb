@@ -7,10 +7,10 @@
         
         <table class="table table-condensed">
             <tr>
-                <th class="col-xs-5">Product</th>
-                <th class="col-xs-2">Quantity</th>
-                <th class="col-xs-2">Product Price</th>
-                <th class="col-xs-3">Product Sub-Total</th>
+                <th class="col-sm-5" colspan="3">Product</th>
+                <th class="col-sm-2">Quantity</th>
+                <th class="col-sm-2">Product Price</th>
+                <th class="col-sm-3">Product Sub-Total</th>
             </tr>
             
             <%= render current_user.shoppingCartItems %>
@@ -18,8 +18,10 @@
             <tr>
                 <td></td>
                 <td></td>
-                <td>Grand Total:</td>
-                <td><%= current_user.cart_total_price %></td>
+                <td></td>
+                <td></td>
+                <td><strong>Grand Total:</strong></td>
+                <td><strong>$<%= current_user.cart_total_price %></strong></td>
             </tr>
         </table>
     </div>

@@ -16,12 +16,12 @@
             <ul class="nav navbar-nav navbar-right">
                 <% if logged_in? %>
                     <li class="shopping-cart">
-                        <a href="/users/<%= current_user.id %>/cart">
+                        <a href="cart">
                             <% if current_user.cartSize > 0 %>
-                            <span class="fa-stack">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <strong class="fa-stack-1x circle-text"><%= current_user.cartSize %></strong>
-                            </span>
+                                <span class="fa-stack">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <strong class="fa-stack-1x circle-text"><%= current_user.cartSize %></strong>
+                                </span>
                             <% end %>
                             Shopping Cart
                         </a>
