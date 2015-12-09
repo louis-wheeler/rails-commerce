@@ -28,6 +28,9 @@
         <strong>Image Name (e.g. my_product.jpg)</strong>
         <%= f.text_field :image, class: 'form-control' %>
         
+        <strong>Featured on Home Page?</strong>
+        <%= f.check_box :isFeatured %>
+        
         <div class="submit-btn-container">
             <%= link_to 'Cancel', products_path, class: 'btn btn-default' %>
             <%= f.submit class: 'btn btn-success' %>

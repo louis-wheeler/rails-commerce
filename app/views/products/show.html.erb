@@ -96,10 +96,15 @@
             <div class="separator"/>
         </div>
         
+        <hr/>
 
         <div class="product-reviews">
             <h2>Reviews</h2>
-            <%= render @product.reviews %>
+            <% if @product.reviews.any? %>
+                <%= render @product.reviews %>
+            <% else %>
+                There aren't any reviews for this product yet.
+            <% end %>
         </div>
 
         <div class="product-add-review">

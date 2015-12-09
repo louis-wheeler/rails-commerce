@@ -20,6 +20,7 @@ class ProductsController < ApplicationController
     def create
         confirm_admin
         @product = Product.new(product_params)
+        @product.isFeatured = false
         if @product.save
             redirect_to @product
         else
@@ -52,6 +53,6 @@ class ProductsController < ApplicationController
     
     private
         def product_params
-            params.require(:product).permit(:name, :description, :price, :image)
+            params.require(:product).permit(:name, :description, :price, :image, :isFeatured)
         end
 end

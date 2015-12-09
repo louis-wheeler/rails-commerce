@@ -3,13 +3,14 @@
     
     <div class="shopping-cart-content">
         <h1>Shopping Cart</h1>
+        <hr/>
         
         <% if logged_in? %>
             <!-- Logged in -->
             
             <% if current_user.cartSize > 0 %>
                 <!-- Has items in cart -->
-            
+                
                 <table class="table table-condensed">
                     <tr>
                         <th class="col-sm-5" colspan="3">Product</th>
@@ -32,7 +33,7 @@
             <% else %>
                 <!-- No items in cart -->
                 <h2>You don't have any items in your cart!</h2>
-                <p>Head to the products page to find what's perfect for you.</p>
+                <p>Head to the <%= link_to 'products page', products_path %> to find what's perfect for you.</p>
             <% end %>
         <% else %>
             <!-- Not logged in -->

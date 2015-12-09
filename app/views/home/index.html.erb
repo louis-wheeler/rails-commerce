@@ -8,11 +8,30 @@
     
     <div class="featured-products">
         <h2>Featured Products</h2>
-        <hr/>
         
         <div class="featured-products-content">
-            
+            <table class="table table-condensed">
+                <%= render Product.where(:isFeatured => true) %>
+            </table>
         </div>
     </div>
     
 </div>
+
+<script>
+    $(document).ready(function() {
+        $('tr.product-row').click(function() {
+            $(this).next('tr.product-row-detail').find('div').slideToggle(300);
+        });
+        $('tr.product-row-detail').click(function() {
+            $(this).find('div').slideUp(300);
+        });
+        $('a.btn').click(function(e) {
+            e.stopPropagation();
+        });
+        $('td.product-action-delete button.btn-danger').click(function(e) {
+            e.stopPropagation();
+            $($(this).attr('data-target')).modal('show');
+        });
+    });
+</script>
