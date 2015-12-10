@@ -153,13 +153,18 @@
             var totalPrice = (Math.round((unitPrice * quantity) * 100) / 100);
             total.html('$' + totalPrice.toFixed(2));
             
-            // Update the quantity parameter on the 'confirm' link
-            var addCartLink = $('div.modal-footer a.btn-add-to-cart');
-            var linkText = addCartLink.attr('href');
-            var startIndex = (linkText.indexOf('&quantity=') + 10);
-            var endIndex = linkText.indexOf('&user_id=');
-            var updatedLink = (linkText.substring(0, startIndex) + quantity + linkText.substring(endIndex));
-            addCartLink.attr('href', updatedLink);
+            if (!isNaN(quantity) && quantity > 0) {
+                // Update the quantity parameter on the 'confirm' link
+                var addCartLink = $('div.modal-footer a.btn-add-to-cart');
+                var linkText = addCartLink.attr('href');
+                var startIndex = (linkText.indexOf('&quantity=') + 10);
+                var endIndex = linkText.indexOf('&user_id=');
+                var updatedLink = (linkText.substring(0, startIndex) + quantity + linkText.substring(endIndex));
+                addCartLink.attr('href', updatedLink);
+                addCartLink.removeClass('disabled');
+            } else {
+                $('div.modal-footer a.btn-add-to-cart').addClass('disabled');
+            }
         });
     });
 </script>
