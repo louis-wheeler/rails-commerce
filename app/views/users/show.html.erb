@@ -48,7 +48,29 @@
         <hr/>
         
         <div class="user-favorite-products">
-            <h2>Favorited Products</h2>
+            <h2>Favorite Products</h2>
+            
+            <table class="table table-condensed">
+                <%= render @user.favorite_products %>
+            </table>
         </div>
     </div>
 </div>
+
+<script>
+    $(document).ready(function() {
+        $('tr.product-row').click(function() {
+            $(this).next('tr.product-row-detail').find('div').slideToggle(300);
+        });
+        $('tr.product-row-detail').click(function() {
+            $(this).find('div').slideUp(300);
+        });
+        $('a.btn').click(function(e) {
+            e.stopPropagation();
+        });
+        $('td.product-action-delete button.btn-danger').click(function(e) {
+            e.stopPropagation();
+            $($(this).attr('data-target')).modal('show');
+        });
+    });
+</script>

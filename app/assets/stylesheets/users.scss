@@ -96,6 +96,52 @@ div.user-detail-page {
         div.separator {
             clear: both;
         }
+        
+        div.user-favorite-products {
+            margin-top: 50px;
+            
+            > table {
+                border-bottom: solid 1px #ddd;
+                
+                tr.product-row {
+                    cursor: pointer;
+                    
+                    td.product-image > img {
+                        height: 100px;
+                    }
+                    
+                    td.product-name, td.product-price,
+                    td.product-action-view, td.product-action-edit, td.product-action-delete {
+                        font-size: 28px;
+                        padding-top: 25px;
+                    }
+                    
+                    td.product-action-view,
+                    td.product-action-edit,
+                    td.product-action-delete {
+                        font-size: 28px;
+                        padding-top: 25px;
+                        
+                        a.btn, button.btn {
+                            width: 100%;
+                        }
+                    }
+                }
+                
+                tr.product-row-detail {
+                    border-top: none;
+                    cursor: pointer;
+                    
+                    > td {
+                        border-top: none;
+                        > div {
+                            display: none;
+                            margin-bottom: 60px;
+                        }
+                    }
+                }
+            }
+        }
     }
 }
 

@@ -2,7 +2,8 @@ class Product < ActiveRecord::Base
     
     # Model relationships
     has_many :reviews, dependent: :destroy
-    has_many :shopping_cart_items, dependent: :destroy
+    has_many :shoppingCartItems, dependent: :destroy
+    has_many :userProductFavorites, dependent: :destroy
     
     # Field validations
     validates :name, presence: true

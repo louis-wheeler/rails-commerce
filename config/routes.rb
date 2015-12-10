@@ -12,6 +12,8 @@ Rails.application.routes.draw do
     # Shopping cart routes
     get    'cart'           => 'users#shopping_cart', as: :user_cart
     post   'products/:id'   => 'shopping_cart_items#create'
+    put    'products/:id'   => 'user_product_favorites#create'
+    delete 'products/:id'   => 'user_product_favorites#destroy'
     post   'cart'           => 'shopping_cart_items#update'
     delete 'cart'           => 'shopping_cart_items#destroy'
 

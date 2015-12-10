@@ -80,10 +80,31 @@
                     <% end %>
                     
                     <!-- Add to Favorites button -->
-                    <a class="btn btn-info btn-favorite">
-                        <span class="fa fa-heart fa-lg"></span>
-                        <span>Add to Favorites</span>
-                    </a>
+                    <% if !current_user.has_item_favorited(@product.id) %>
+                        <%= link_to raw(
+                                        '<span class="fa fa-heart fa-lg"></span> Add to Favorites'
+                                    ),
+                                    {
+                                        :controller => 'user_product_favorites',
+                                        :action => 'create',
+                                        :user_id => current_user.id,
+                                        :product_id => @product.id
+                                    },
+                                    :method => 'put',
+                                    :class => 'btn btn-info btn-favorite' %>
+                    <% else %>
+                        <%= link_to raw(
+                                        '<span class="fa fa-ban fa-lg"></span> Remove from Favorites'
+                                    ),
+                                    {
+                                        :controller => 'user_product_favorites',
+                                        :action => 'create',
+                                        :user_id => current_user.id,
+                                        :product_id => @product.id
+                                    },
+                                    :method => 'delete',
+                                    :class => 'btn btn-info btn-favorite' %>
+                    <% end %>
                 <% else %>
                     <!-- Not logged in -->
                     <a class="btn btn-primary btn-add-to-cart-login disabled">

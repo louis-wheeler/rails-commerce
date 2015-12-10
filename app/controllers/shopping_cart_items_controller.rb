@@ -33,5 +33,4 @@ class ShoppingCartItemsController < ApplicationController
         def cart_item_params
             params.permit(:user_id, :product_id, :quantity)
         end
-    
 end

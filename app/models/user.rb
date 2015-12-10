@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
     
     has_many :shoppingCartItems, dependent: :destroy
+    has_many :userProductFavorites, dependent: :destroy
     
     # Field validations
     validates :username, presence: true
@@ -22,5 +23,13 @@ class User < ActiveRecord::Base
     
     def has_item_in_cart(productId)
         !ShoppingCartItem.where(:user_id => self.id, :product_id => productId).take.nil?
+    end
+    
+    def has_item_favorited(productId)
+        !UserProductFavorite.where(:user_id => self.id, :product_id => productId).take.nil?
+    end
+    
+    def favorite_products
+        Product.where(id: UserProductFavorite.where(:user_id => self.id).pluck(:product_id))
     end
 end
